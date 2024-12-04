@@ -136,7 +136,7 @@ EMFLAGS="-gsource-map -s INVOKE_RUN=1 \
     -sASSERTIONS \
     -s ASYNCIFY -O3 --source-map-base /"
 
-CFLAGS="$CFLAGS $SDL_CFLAGS ${SAMPLERATE_CFLAGS:-} ${PNG_CFLAGS:-} $EMFLAGS"
+CFLAGS="$CFLAGS $SDL_CFLAGS ${SAMPLERATE_CFLAGS:-} ${PNG_CFLAGS:-} $EMFLAGS -Wno-unused-command-line-argument"
 LDFLAGS="$LDFLAGS $SDL_LIBS ${SAMPLERATE_LIBS:-} ${PNG_LIBS:-} $EMFLAGS -lwebsocket.js"
 
 AC_CHECK_LIB(m, log)
@@ -177,7 +177,7 @@ AM_CONDITIONAL(HAVE_ICONS, [test "x$enable_icons" != xno])
 
 dnl Automake v1.8.0 is required, please upgrade!
 
-AM_INIT_AUTOMAKE([-Wunused-command-line-argument 1.8.0 foreign])
+AM_INIT_AUTOMAKE([1.8.0 foreign])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 
 WINDOWS_RC_VERSION=`echo $PACKAGE_VERSION | sed 's/-.*//; s/\./, /g; s/$/, 0/'`
