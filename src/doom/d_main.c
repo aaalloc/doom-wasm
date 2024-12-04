@@ -1105,8 +1105,21 @@ static void G_CheckDemoStatusAtExit(void) { G_CheckDemoStatus(); }
 //
 // D_DoomMain
 //
+
+
+
+const char *something = "Hello from C!";
+
+#include <emscripten.h>
+
+EMSCRIPTEN_KEEPALIVE
+char* get_something_buffer() {
+    return something;
+}
+
 void D_DoomMain(void)
 {
+
     int p;
     char file[256];
     char demolumpname[9];

@@ -2,6 +2,9 @@
 <html lang="en-us">
     <head>
         <title>Websockets Doom</title>
+        <button onclick="testButton()">
+            TEST BUTTON
+        </button>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <style>
             @font-face {
@@ -54,7 +57,29 @@
             <canvas class="frame" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
         </div>
         <script>
-            var commonArgs = ["-iwad", "doom1.wad", "-window", "-nogui", "-nomusic", "-config", "default.cfg", "-servername", "doomflare"];
+            function testButton() {
+                /*
+                char* get_something_buffer() {
+                    return something;
+                }
+                */
+                var test= Module["ccall"]("get_something_buffer",
+                    "string",
+                    [],
+                    []
+                );
+                console.error("TEST VALUE", test);
+            }
+
+            let wad_to_load = "doom2.wad";
+            var commonArgs = [
+                "-iwad", wad_to_load, 
+                "-window", 
+                "-nogui", 
+                "-nomusic", 
+                "-config", "default.cfg", 
+                "-servername", "doomflare"
+            ];
 
             var Module = {
                 onRuntimeInitialized: () => {
@@ -62,7 +87,7 @@
                 },
                 noInitialRun: true,
                 preRun: () => {
-                    Module.FS.createPreloadedFile("", "doom1.wad", "doom1.wad", true, true);
+                    Module.FS.createPreloadedFile("", wad_to_load, wad_to_load, true, true);
                     Module.FS.createPreloadedFile("", "default.cfg", "default.cfg", true, true);
                 },
                 printErr: function (text) {
