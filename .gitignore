@@ -19,3 +19,6 @@ stamp-h1
 clean
 *.wad
 .githelp
+config.hin~
+configure~
+
