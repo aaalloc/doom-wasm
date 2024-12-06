@@ -134,6 +134,8 @@ EMFLAGS="-gsource-map -s INVOKE_RUN=1 \
     -s TOTAL_MEMORY=64MB \
     -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
     -sASSERTIONS \
+    --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/doom2.wad@doom2.wad \
+    --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/default.cfg@default.cfg \
     -s ASYNCIFY -O3 --source-map-base /"
 
 CFLAGS="$CFLAGS $SDL_CFLAGS ${SAMPLERATE_CFLAGS:-} ${PNG_CFLAGS:-} $EMFLAGS -Wno-unused-command-line-argument"

@@ -718,7 +718,6 @@ void D_IdentifyVersion(void)
 
         if (gamemission == none) {
             // Still no idea.  I don't think this is going to work.
-
             I_Error("Unknown or invalid IWAD file.");
         }
     }
@@ -1108,14 +1107,14 @@ static void G_CheckDemoStatusAtExit(void) { G_CheckDemoStatus(); }
 
 
 
-const char *something = "Hello from C!";
 
 #include <emscripten.h>
 
 EMSCRIPTEN_KEEPALIVE
-char* get_something_buffer() {
-    return something;
+int get_total_kills() {
+    return players[0].killcount;
 }
+
 
 void D_DoomMain(void)
 {
@@ -1286,9 +1285,11 @@ void D_DoomMain(void)
 
     // None found?
 
+    printf("GAMEMISSION type: %d\n", gamemission);
+    // gamemission = 2;
     if (iwadfile == NULL) {
-        I_Error("Game mode indeterminate.  No IWAD file was found.  Try\n"
-                "specifying one with the '-iwad' command line parameter.\n");
+         I_Error("Game mode indeterminate.  No IWAD file was found.  Try\n"
+                 "specifying one with the '-iwad' command line parameter.\n");
     }
 
     modifiedgame = false;

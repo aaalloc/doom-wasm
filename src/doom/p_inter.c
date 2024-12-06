@@ -667,6 +667,14 @@ P_TouchSpecialThing
 	S_StartSound (NULL, sound);
 }
 
+#include <emscripten.h>
+
+// // Define the JavaScript bridge function
+// EM_JS(void, call_js_event_kills, (int count_kills), {
+// 	alert("Kills: " + count_kills);
+// });
+
+
 
 //
 // KillMobj
@@ -701,6 +709,9 @@ P_KillMobj
 	// count all monster deaths,
 	// even those caused by other monsters
 	players[0].killcount++;
+	// CALL JS HERE !!!!!!!!!!!!!
+	// call_js_event_kills(players[0].killcount);
+	// printf("AAAAAAAAAAAAa\n");
     }
     
     if (target->player)

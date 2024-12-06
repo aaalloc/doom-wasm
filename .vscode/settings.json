@@ -13,6 +13,7 @@
         "span": "c",
         "m_misc.h": "c",
         "w_wad.h": "c",
-        "emscripten.h": "c"
+        "emscripten.h": "c",
+        "doomstat.h": "c"
     }
 }
