@@ -1,63 +1,22 @@
 # Wasm Doom
 
-This is a [Chocolate Doom][1] WebAssembly port with WebSockets [support][4].
+Doom WASM for la nuit de l'info
 
-## Requirements
 
-You need to install Emscripten and a few other tools first:
-
-```
-brew install emscripten
-brew install automake
-brew install sdl2 sdl2_mixer sdl2_net
-```
+## Modification
+Check [commit](https://github.com/aaalloc/doom-wasm/commit/93532c0dc86f9b88388f125a4a4d915a83fc3289) for changes
 
 ## Compiling
 
-There are two scripts to facilitate compiling Wasm Doom:
-
 ```
-./scripts/clean.sh
-./scripts/build.sh
+./scripts/buildv2.sh
 ```
 
-## Running
+Files used for website is in out/
 
-Copy the shareware version of [doom1.wad][3] to [./src][9] (make sure it has the name doom1.wad)
 
-Then:
-
-```
-cd src
-python -m SimpleHTTPServer
-```
-
-Then open your browser and point it to http://0.0.0.0:8000/
-
-Doom should start (local mode, no network). Check [doom-workers][8] if you want to run multiplayer locally.
-
-Inspect [src/index.html][6] for startup details.
-
-Check our live multiplayer [demo][5] and [blog post][7].
-
-## stdout procotol
-
-To show important messages coming from the game while it's running we send the following formatted stdout messages, which can be parsed in the web page running the wasm:
-
-```
-doom: 1, failed to connect to websockets server
-doom: 2, connected to %s
-doom: 3, we're out of client addresses
-doom: 4, ws error(eventType=%d, userData=%d)
-doom: 5, ws close(eventType=%d, wasClean=%d, code=%d, reason=%s, userData=%d)
-doom: 6, failed to send ws packet, reconnecting
-doom: 7, failed to connect to %s
-doom: 8, uid is %d
-doom: 9, disconnected from server
-doom: 10, game started
-doom: 11, entering fullscreen
-doom: 12, client '%s' timed out and disconnected
-```
+## Acknowledgements
+Fork repo
 
 ## License
 
