@@ -670,9 +670,13 @@ P_TouchSpecialThing
 #include <emscripten.h>
 
 // // Define the JavaScript bridge function
-// EM_JS(void, call_js_event_kills, (int count_kills), {
-// 	alert("Kills: " + count_kills);
-// });
+EM_JS(void, call_js_event_kills, (int count_kills), {
+	// because the function will be created in js emscripten code
+	// and the function that we define will be not in that code. 
+	// so first step when initi module is to give that function and then
+	// inside the function we can call the function that we define in the js code.
+	Module["call_js_event_kills"](count_kills);
+});
 
 
 
@@ -690,7 +694,7 @@ P_KillMobj
     target->flags &= ~(MF_SHOOTABLE|MF_FLOAT|MF_SKULLFLY);
 
     if (target->type != MT_SKULL)
-	target->flags &= ~MF_NOGRAVITY;
+		target->flags &= ~MF_NOGRAVITY;
 
     target->flags |= MF_CORPSE|MF_DROPOFF;
     target->height >>= 2;
@@ -699,19 +703,16 @@ P_KillMobj
     {
 	// count for intermission
 	if (target->flags & MF_COUNTKILL)
-	    source->player->killcount++;	
+		call_js_event_kills(++source->player->killcount);
 
 	if (target->player)
 	    source->player->frags[target->player-players]++;
     }
     else if (!netgame && (target->flags & MF_COUNTKILL) )
     {
-	// count all monster deaths,
-	// even those caused by other monsters
-	players[0].killcount++;
-	// CALL JS HERE !!!!!!!!!!!!!
-	// call_js_event_kills(players[0].killcount);
-	// printf("AAAAAAAAAAAAa\n");
+		// count all monster deaths,
+		// even those caused by other monsters
+		players[0].killcount++;
     }
     
     if (target->player)

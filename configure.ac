@@ -124,7 +124,7 @@ EMFLAGS="-gsource-map -s INVOKE_RUN=1 \
     -s WASM=1 \
     -s ALLOW_MEMORY_GROWTH=0 \
     -s FORCE_FILESYSTEM=1 \
-    -s EXPORTED_RUNTIME_METHODS=[['FS','ccall']] \
+    -s EXPORTED_RUNTIME_METHODS=[['FS','ccall','callMain']] \
     -s SAFE_HEAP=1 \
     -s EXIT_RUNTIME=1 \
     -s STACK_OVERFLOW_CHECK=1 \
@@ -133,6 +133,7 @@ EMFLAGS="-gsource-map -s INVOKE_RUN=1 \
     -s PROXY_TO_PTHREAD=0 \
     -s TOTAL_MEMORY=64MB \
     -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
+    -s EXPORT_ES6=1 \
     -sASSERTIONS \
     --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/doom2.wad@doom2.wad \
     --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/default.cfg@default.cfg \
