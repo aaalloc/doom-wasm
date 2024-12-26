@@ -2,4 +2,4 @@
 
 emmake make
 
-mv src/websockets-doom.* out/
+./scripts/deploy.sh

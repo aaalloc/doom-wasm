@@ -11,7 +11,5 @@ ac_cv_exeext=".html" emconfigure ./configure --host=none-none-none
 
 emmake make
 
-# for simple html example
-mv src/websockets-doom.* out/
-
-# for nextjs example
+# execute deploy.sh which is presnet in the same directory
+./scripts/deploy.sh

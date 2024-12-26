@@ -30,7 +30,7 @@ export default function Doom() {
     return (
         <>
             <script id="doom-init" type="module">
-                import loadDoom  from '/doom-wasm/load_doomv0.js';
+                import loadDoom  from '/load_doom.js';
                 window.doomModule = await loadDoom();
             </script>
             <div>
