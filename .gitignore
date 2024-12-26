@@ -21,4 +21,7 @@ clean
 .githelp
 config.hin~
 configure~
+websockets-doom.data
 
+!out/index.html
+!out/load_doom.js
