@@ -10,4 +10,8 @@ emconfigure autoreconf -fiv
 ac_cv_exeext=".html" emconfigure ./configure --host=none-none-none
 
 emmake make
+
+# for simple html example
 mv src/websockets-doom.* out/
+
+# for nextjs example
