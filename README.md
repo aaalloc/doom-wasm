@@ -6,13 +6,25 @@ Doom WASM for la nuit de l'info
 ## Modification
 Check [commit](https://github.com/aaalloc/doom-wasm/commit/93532c0dc86f9b88388f125a4a4d915a83fc3289) for changes
 
-## Compiling
+## Compiling first time
 
+```
+./scripts/build.sh
+```
+
+## Recompiling
 ```
 ./scripts/buildv2.sh
-```
+``` 
 
-Files used for website is in out/
+## Usage
+### Simple http server
+```
+cd out/
+python -m http.server
+```
+### NextJS example
+Example with NextJS and bun is present in `out/doom-captcha/`
 
 
 ## Acknowledgements
