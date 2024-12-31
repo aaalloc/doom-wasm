@@ -7,6 +7,20 @@ Doom WASM for la nuit de l'info
 Check [commit](https://github.com/aaalloc/doom-wasm/commit/93532c0dc86f9b88388f125a4a4d915a83fc3289) for changes
 
 ## Compiling first time
+Download [doom2.wad](https://github.com/Akbar30Bill/DOOM_wads/raw/refs/heads/master/doom2.wad)
+Change path into `configure.ac` for your doom2.wad and default.cfg (default.cfg should be already present in `data/`)
+
+```
+...
+    -s TOTAL_MEMORY=64MB \
+    -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
+    -s EXPORT_ES6=1 \
+    -sASSERTIONS \
+    --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/doom2.wad@doom2.wad \
+    --preload-file /home/yanovskyy/Documents/projects/doom-wasm/data/default.cfg@default.cfg \
+    -s ASYNCIFY -O3 --source-map-base /"
+...
+```
 
 ```
 ./scripts/build.sh
