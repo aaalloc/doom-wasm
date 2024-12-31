@@ -7,6 +7,8 @@ Doom WASM for la nuit de l'info
 Check [commit](https://github.com/aaalloc/doom-wasm/commit/93532c0dc86f9b88388f125a4a4d915a83fc3289) for changes
 
 ## Compiling first time
+Install [emscripten](https://emscripten.org/docs/getting_started/downloads.html)
+
 Download [doom2.wad](https://github.com/Akbar30Bill/DOOM_wads/raw/refs/heads/master/doom2.wad)
 Change path into `configure.ac` for your doom2.wad and default.cfg (default.cfg should be already present in `data/`)
 
